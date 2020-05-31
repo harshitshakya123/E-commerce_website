@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="connection.url">jdbc:mysql://localhost:3306/mycart</property>
+    <property name="connection.username">root</property>
+    <property name="connection.password"></property>
+    <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+    <property name="hbm2ddl.auto">update</property> <!--  used to create a table  -->
+    <property name="format_sql">true</property>
+    <property name="use_sql_comments">true</property>
+    <property name="show_sql">true</property>
+    <mapping class="com.learn.mycart.entities.User"/>
+    <mapping class="com.learn.mycart.entities.Product"/>
+     <mapping class="com.learn.mycart.entities.Category"/>
+    
+    </session-factory>
+</hibernate-configuration>
