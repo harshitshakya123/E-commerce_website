@@ -1,3 +1,5 @@
+<%@page import="java.util.Map"%>
+<%@page import="com.learn.mycart.helper.Helper"%>
 <%@page import="java.util.List"%>
 <%@page import="com.learn.mycart.helper.FactoryProvider"%>
 <%@page import="com.learn.mycart.dao.*"%>
@@ -12,9 +14,17 @@
 		if (user.getUserType().equals("normal")) {
 			session.setAttribute("message", "You are not Admin !! Do not access this page");
 			response.sendRedirect("login.jsp");
+			return;
 		}
 	}
 %>
+
+<%
+							CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
+							List<Category> list = cdao.getCategories();
+						    
+							Map<String, Long> m= Helper.getCounts(FactoryProvider.getFactory());
+						%>
 
 
 
@@ -56,7 +66,7 @@
 								src="img/user.png" alt="user.png">
 						</div>
 
-						<h1>3545</h1>
+						<h1><%=m.get("userCount") %></h1>
 						<h1>Users</h1>
 
 					</div>
@@ -72,7 +82,7 @@
 								src="img/category.png" alt="user.png">
 
 						</div>
-						<h1>553</h1>
+						<h1><%= list.size() %></h1>
 						<h1>Categories</h1>
 					</div>
 				</div>
@@ -88,7 +98,7 @@
 								src="img/product.png" alt="user.png">
 
 						</div>
-						<h1>8563</h1>
+						<h1><%=m.get("productCount") %></h1>
 						<h1>Product</h1>
 
 					</div>
@@ -227,10 +237,7 @@
 
 						</div>
 
-						<%
-							CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
-							List<Category> list = cdao.getCategories();
-						%>
+						
 
 
 
