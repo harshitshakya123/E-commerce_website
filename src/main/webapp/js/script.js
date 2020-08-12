@@ -124,7 +124,7 @@ if(cart==null || cart.length==0)
 function deleteItemFromCart(pid)
 {
 let cart=JSON.parse(localStorage.getItem('cart'));	
-let newcart=cart.filter((item)=>ite,productId!=pid)
+let newcart=cart.filter((item)=>item.productId!=pid);
 
 localStorage.setItem('cart',JSON.stringify(newcart))
 updateCart();
