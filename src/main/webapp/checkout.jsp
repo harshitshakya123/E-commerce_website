@@ -12,13 +12,6 @@ if (user == null) {
 
 
 
-
-
-
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -67,8 +60,8 @@ if (user == null) {
 							</div>
 							<div class="form-group">
 								<label for="exampleFormControlTextarea1">Your shipping address</label>
-								<textarea value="<%=user.getUserAddress() %>" class="form-control" id="exampleFormControlTextarea1"
-									rows="3" placeholder="Enter your address"></textarea>
+								<textarea  class="form-control" id="exampleFormControlTextarea1"
+									rows="3" placeholder="Enter your address"><%=user.getUserAddress() %></textarea>
 							</div>
 							<div class="form-group">
 								<label for="exampleInputEmail1">Your Contact Number</label> <input value="<%=user.getUserPhone() %>"
